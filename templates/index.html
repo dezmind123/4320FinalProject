@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .nav {
+            color: red;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+        }
+        .menu-item {
+            text-decoration: none;
+            margin-right: 15px;
+            color: red;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px gray;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="/" class="menu-item">Home</a> | 
+        <a href="/admin" class="menu-item">Admin</a> | 
+        <a href="/reserve" class="menu-item">Reservations</a>
+    </div>
+    <div class="container">
+        <div class="box">
+            <h1>Welcome to the Reservation System</h1>
+            <form method="POST">
+                <label for="option">Choose an option:</label><br><br>
+                <select name="option" id="option">
+                    <option value="admin">Admin Login</option>
+                    <option value="reserve">Reserve a Seat</option>
+                </select><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

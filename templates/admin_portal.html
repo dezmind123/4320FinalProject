@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <div class="nav">
+    <a href="/" class="menu-item">Home</a> | 
+    <a href="/admin" class="menu-item">Admin</a> | 
+    <a href="/reserve" class="menu-item">Reservations</a>
+</div>
+<style>
+    .nav {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: red;
+    }
+    .menu-item {
+        text-decoration: none;
+        margin-right: 15px;
+        color: red;
+    }
+</style>
+
+<head>
+    <title>Admin Portal</title>
+    <style>
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        .reserved { background-color: red; }
+        .available { background-color: green; }
+    </style>
+</head>
+<body>
+    <h1>Admin Portal</h1>
+    <table>
+        {% for row in seating_chart %}
+        <tr>
+            {% for seat in row %}
+            <td class="{{ 'reserved' if seat else 'available' }}">{{ seat if seat else 'O' }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <p>Total Sales: ${{ total_sales }}</p>
+</body>
+</html>

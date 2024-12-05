@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+</head>
+<body>
+    <div class="nav">
+        <a href="/" class="menu-item">Home</a> | 
+        <a href="/admin" class="menu-item">Admin</a> | 
+        <a href="/reserve" class="menu-item">Reservations</a>
+    </div>
+    <div class="container">
+        <h1>Admin Login</h1>
+        <form method="POST">
+            Username: <input type="text" name="username"><br><br>
+            Password: <input type="password" name="password"><br><br>
+            <button type="submit">Login</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <p style="color: red;">{{ messages[0] }}</p>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

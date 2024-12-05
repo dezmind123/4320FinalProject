@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Seating Chart</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        .available {
+            background-color: #d4edda;
+        }
+        .reserved {
+            background-color: #f8d7da;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bus Seating Chart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th>Seat A</th>
+                <th>Seat B</th>
+                <th>Seat C</th>
+                <th>Seat D</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row_index, row in enumerate(seating_chart) %}
+            <tr>
+                <td>Row {{ row_index + 1 }}</td>
+                {% for seat in row %}
+                <td class="{{ 'reserved' if seat else 'available' }}">
+                    {{ seat if seat else 'Available' }}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('admin_portal') }}">Back to Admin Portal</a>
+</body>
+</html>
